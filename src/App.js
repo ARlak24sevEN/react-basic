@@ -1,9 +1,26 @@
+import { useState } from "react";
 function App() {
-  const name = "arlak";
+  const [count, setCount] = useState(0);
+  function addCount() {
+    console.log(count);
+    setCount(count + 1);
+  }
+
+  function reduceCount() {
+    console.log(count);
+    setCount(count - 1);
+  }
+  function resetCount() {
+    console.log(count);
+    setCount(0);
+  }
+
   return (
     <>
-      <h1>สวัสดี {name}</h1>
-      <button onClick={()=>alert("hello react")}>click </button>
+      <h1>{count}</h1>
+      <button onClick={addCount}>add count</button>
+      <button onClick={reduceCount}>reduce count</button>
+      <button onClick={resetCount}>reset</button>
     </>
   );
 }
