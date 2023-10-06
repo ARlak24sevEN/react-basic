@@ -6,14 +6,18 @@ function App() {
     { id: 3, name: "anna" },
   ]);
 
+  const [show,setShow] = useState(true)// true show , false no show
+
   function deleteStudent(id){
    setStudent(students.filter(item => item.id !== id ))
   }
   return (
     <>
       <h1> จำนวนนักเรียน = {students.length}</h1>
+      
+      <button onClick={()=>setShow(!show)}> สลับ</button>
       <ul>
-        {students.map((item)=>(
+        {show && students.map((item)=>(
           <li key={item.id}>
             <p>{item.id} - {item.name}</p>
             <button onClick={()=>deleteStudent(item.id)}>ลบ</button>
