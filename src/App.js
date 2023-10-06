@@ -1,26 +1,26 @@
 import { useState } from "react";
 function App() {
-  const [count, setCount] = useState(0);
-  // function addCount() {
-  //   console.log(count);
-  //   setCount(count + 1);
-  // }
+  const [students, setStudent] = useState([
+    { id: 1, name: "arlak" },
+    { id: 2, name: "nadia" },
+    { id: 3, name: "anna" },
+  ]);
 
-  // function reduceCount() {
-  //   console.log(count);
-  //   setCount(count - 1);
-  // }
-  // function resetCount() {
-  //   console.log(count);
-  //   setCount(0);
-  // }
-
+  function deleteStudent(id){
+   setStudent(students.filter(item => item.id !== id ))
+  }
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={()=>setCount(count+1)}>add count</button>
-      <button onClick={()=>setCount(count-1)}>reduce count</button>
-      <button onClick={()=>setCount(0)}>reset</button>
+      <h1> จำนวนนักเรียน = {students.length}</h1>
+      <ul>
+        {students.map((item)=>(
+          <li key={item.id}>
+            <p>{item.id} - {item.name}</p>
+            <button onClick={()=>deleteStudent(item.id)}>ลบ</button>
+          </li>
+        ))}
+      </ul>
+      
     </>
   );
 }
