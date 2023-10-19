@@ -4,7 +4,9 @@ function App() {
   return (
     <>
       <Header />
-      <StrudentList />
+      <main>
+        <StrudentList />
+      </main>
     </>
   );
 }
